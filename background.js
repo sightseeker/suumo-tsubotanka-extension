@@ -18,7 +18,7 @@ chrome.runtime.onMessage.addListener(
         // 専有面積情報取得
         let df = pu.getElementsByClassName("dottable-fix")[0];
         let strSquareSize = df.getElementsByTagName("dd")[0].innerText
-        let squareMeter = parseInt(strSquareSize.split("m")[0]);
+        let squareMeter = parseFloat(strSquareSize.split("m")[0]);
         // 専有面積を坪に変換(計算)
         let tsubo = squareMeter / 3.30579;
 
