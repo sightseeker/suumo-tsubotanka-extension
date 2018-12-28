@@ -3,6 +3,14 @@
 chrome.runtime.onMessage.addListener(
   function (message, callback) {
     function calculatePricePerTsubo() {
+
+      // 坪単価計算対象ページの判定
+      let h1 = document.getElementsByTagName("h1")[0].innerText;
+      if (!h1.includes("中古マンションの購入情報")) {
+        console.debug("坪単価計算対象外ページ");
+        return true;
+      }
+
       console.log('坪単価計算開始:');
       let propertyUnits = document.getElementsByClassName("property_unit");
 
